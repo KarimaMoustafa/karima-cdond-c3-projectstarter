@@ -34,7 +34,7 @@ commands:
               npm run migration:revert
             fi
 
-   install-aws-cli:
+  install-aws-cli:
     description: Install aws cli
     steps:
       - run:
