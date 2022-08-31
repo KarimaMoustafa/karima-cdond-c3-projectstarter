@@ -245,7 +245,7 @@ jobs:
             then
                 curl https://kvdb.io/4RdtSxaNfpGpRRqQcuCYjL/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
-     - destroy-environment:
+      - destroy-environment:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
       - revert-migrations:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}" 
@@ -255,10 +255,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/
       - install-aws-cli
       - install_nodejs
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install dependencies
           command: |
