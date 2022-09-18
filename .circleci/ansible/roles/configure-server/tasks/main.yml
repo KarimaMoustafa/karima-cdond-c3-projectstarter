@@ -14,10 +14,12 @@
   apt:
     autoremove: yes
 
-- name: "install dependencies."
-  become: yes
+- name: install node
+  shell: |
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && sudo apt-get install -y nodejs
+- name: "Install zip utility."
   apt:
-    name: ["nodejs", "npm"]
+    name: [ "zip", "unzip" ]
     state: latest
     update_cache: yes
 
